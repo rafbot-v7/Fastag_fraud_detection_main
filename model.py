@@ -81,7 +81,8 @@ grid_search = GridSearchCV(estimator=BalancedRandomForestClassifier(random_state
 grid_search.fit(X_train_resampled, y_train_resampled)
 
 best_model = grid_search.best_estimator_
-
+print("Best parameters found by GridSearchCV:")
+print(grid_search.best_params_)
 y_pred = best_model.predict(X_test)
 
 fpr, tpr, _ = roc_curve(y_test, y_pred)
